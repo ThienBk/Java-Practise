@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tách số từ văn bản</title>
+<title>Tách số từ văn bản và định dạng kết quả</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -30,7 +30,7 @@
 </head>
 <body>
 <div class="container">
-  <h1>Tách số từ văn bản</h1>
+  <h1>Tách số từ văn bản và định dạng kết quả</h1>
   <textarea id="inputText" placeholder="Nhập văn bản..."></textarea>
   <button onclick="splitNumbers()">Tách số</button>
   <div class="result" id="result"></div>
@@ -43,9 +43,20 @@ function splitNumbers() {
 
   if (numbers) {
     var resultHTML = "<p>Các số tìm thấy:</p><ul>";
-    numbers.forEach(function(number) {
-      resultHTML += "<li>" + number + "</li>";
-    });
+
+    if (numbers[0]) {
+      resultHTML += "<li>" + numbers[0] + "L</li>";
+    }
+    if (numbers[1]) {
+      resultHTML += "<li>" + numbers[1] + "W</li>";
+    }
+    if (numbers[2]) {
+      resultHTML += "<li>" + numbers[2] + "H</li>";
+    }
+    if (numbers[3]) {
+      resultHTML += "<li>" + numbers[3] + "lbs</li>";
+    }
+
     resultHTML += "</ul>";
     resultDiv.innerHTML = resultHTML;
   } else {
